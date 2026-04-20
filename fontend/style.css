@@ -1,0 +1,327 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top, rgba(84, 147, 255, 0.25), transparent 35%),
+                radial-gradient(circle at right bottom, rgba(128, 80, 255, 0.18), transparent 35%),
+                linear-gradient(180deg, #090a20 0%, #10142f 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f4f7ff;
+    padding: 24px;
+}
+
+.app-shell {
+    width: 100%;
+    max-width: 1140px;
+    min-height: 720px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+}
+
+.sidebar,
+.chat-panel {
+    border-radius: 30px;
+    background: rgba(15, 18, 45, 0.92);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+}
+
+.sidebar {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.brand-panel {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.brand-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #7b61ff, #459dff);
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.brand-panel h1 {
+    font-size: 1.65rem;
+    line-height: 1.1;
+}
+
+.brand-panel p {
+    margin-top: 6px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.96rem;
+    max-width: 220px;
+}
+
+.sidebar-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 22px;
+}
+
+.sidebar-card h2 {
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+}
+
+.sidebar-card p,
+.sidebar-card li {
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.75;
+    font-size: 0.95rem;
+}
+
+.sidebar-card ul {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.sidebar-card li::before {
+    content: '•';
+    color: #699cff;
+    display: inline-block;
+    width: 18px;
+}
+
+.chat-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.chat-header h2 {
+    font-size: 1.6rem;
+}
+
+.chat-header p {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.76);
+    max-width: 520px;
+}
+
+.doc-btn {
+    border: none;
+    background: linear-gradient(135deg, #5f8bff, #7a5bff);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doc-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(95, 139, 255, 0.25);
+}
+
+.chat-box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 28px;
+    padding: 26px;
+    overflow-y: auto;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    margin-bottom: 24px;
+}
+
+.message {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.bot {
+    justify-content: flex-start;
+}
+
+.message .avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.message.user .avatar {
+    background: #5f8bff;
+}
+
+.message.bot .avatar {
+    background: #2f2f4b;
+}
+
+.message .text {
+    max-width: 75%;
+    padding: 16px 20px;
+    border-radius: 26px;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    word-wrap: break-word;
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
+}
+
+.message.user .text {
+    background: linear-gradient(135deg, rgba(95, 139, 255, 0.95), rgba(118, 191, 255, 0.95));
+    color: #081224;
+    border-bottom-right-radius: 6px;
+}
+
+.message.bot .text {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e9efff;
+    border-bottom-left-radius: 6px;
+}
+
+.controls {
+    display: grid;
+    gap: 18px;
+}
+
+.input-group {
+    display: grid;
+    grid-template-columns: 1fr 64px;
+    gap: 12px;
+}
+
+#input {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
+    color: #f3f7ff;
+    font-size: 1rem;
+    outline: none;
+}
+
+#input::placeholder {
+    color: rgba(243, 247, 255, 0.55);
+}
+
+#input:focus {
+    border-color: rgba(95, 139, 255, 0.8);
+    box-shadow: 0 0 0 4px rgba(95, 139, 255, 0.12);
+}
+
+#send-btn {
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #4ec3ff, #5f8bff);
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: grid;
+    place-items: center;
+    transition: transform 0.2s ease;
+}
+
+#send-btn:hover {
+    transform: translateY(-2px);
+}
+
+.upload-widget {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.file-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #b3c6ff;
+    font-weight: 600;
+}
+
+.file-info {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.93rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+}
+
+@media (max-width: 1024px) {
+    .app-shell {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 720px) {
+    body {
+        padding: 16px;
+    }
+
+    .chat-panel,
+    .sidebar {
+        border-radius: 24px;
+    }
+
+    .chat-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-group {
+        grid-template-columns: 1fr;
+    }
+
+    #send-btn {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .upload-widget {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

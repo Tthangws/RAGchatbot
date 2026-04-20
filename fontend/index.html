@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand-panel">
+                <div class="brand-icon"><i class="fas fa-search"></i></div>
+                <div>
+                    <h1>ProTutor</h1>
+                    <p>Hỗ trợ tìm hiểu và giải bài từ PDF, ảnh, tài liệu CNTT.</p>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h2>Hướng dẫn nhanh</h2>
+                <ul>
+                    <li>Nhập câu hỏi</li>
+                    <li>Tải lên file PDF hoặc ảnh</li>
+                    <li>Nhận câu trả lời trực tiếp</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h2>File hỗ trợ</h2>
+                <p>PDF, PNG, JPG, JPEG</p>
+            </div>
+        </aside>
+
+        <main class="chat-panel">
+            <div class="chat-header">
+                <div>
+                    <h2>Chatbot hỗ trợ tập</h2>
+                    <p>Nhập câu hỏi hoặc tải lên tài liệu để bắt đầu.</p>
+                </div>
+                <button class="doc-btn" onclick="document.getElementById('file').click()"><i class="fas fa-upload"></i> Tải lên tài liệu</button>
+            </div>
+
+            <div id="chat-box" class="chat-box"></div>
+
+            <div class="controls">
+                <div class="input-group">
+                    <input id="input" type="text" placeholder="Nhập câu hỏi của bạn..." />
+                    <button id="send-btn" onclick="send()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+
+                <div class="upload-widget">
+                    <label for="file" class="file-label"><i class="fas fa-file-import"></i> Chọn PDF hoặc ảnh</label>
+                    <span class="file-info" id="file-name">Chưa có file</span>
+                </div>
+                <input type="file" id="file" accept=".pdf,image/*" hidden>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

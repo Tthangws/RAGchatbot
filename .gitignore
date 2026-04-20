@@ -1,0 +1,19 @@
+# Môi trường ảo (Nặng, không push)
+venv/
+env/
+ENV/
+
+# Key bảo mật (Cấm push)
+.env
+
+# File rác Python sinh ra khi chạy code
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dữ liệu Vector DB (Không nên push vì nặng và dễ lỗi format)
+backend/db/
+
+# Các file tạm của VS Code
+.vscode/
