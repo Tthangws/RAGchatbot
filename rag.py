@@ -1,11 +1,12 @@
 from langchain_community.vectorstores import FAISS
-from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_classic.memory import ConversationBufferMemory
 import os
 DB_PATH = "backend/db"
-os.environ["GOOGLE_API_KEY"] = "AIzaSyCm5A_TunyKBrmMZ9dYs0Y7p7A5mel7Ztc"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyBhaorbzAWeSQcTOo7ENYE4scVG1-3CXmo"
 # Embedding (Google Generative AI)
-embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
+embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # Load vector DB
 db = FAISS.load_local(DB_PATH, embeddings, allow_dangerous_deserialization=True)
@@ -15,6 +16,7 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 
 # Memory
 memory = ConversationBufferMemory(return_messages=True)
+
 
 def ask_rag(question):
     # tìm tài liệu liên quan
