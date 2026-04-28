@@ -14,8 +14,8 @@
             <div class="brand-panel">
                 <div class="brand-icon"><i class="fas fa-search"></i></div>
                 <div>
-                    <h1>ProTutor</h1>
-                    <p>Hỗ trợ tìm hiểu và giải bài từ PDF, ảnh, tài liệu CNTT.</p>
+                    <h1>Chatbot</h1>
+                    <p>Hỗ trợ tìm hiểu và giải bài tập.</p>
                 </div>
             </div>
 
@@ -23,39 +23,37 @@
                 <h2>Hướng dẫn nhanh</h2>
                 <ul>
                     <li>Nhập câu hỏi</li>
-                    <li>Tải lên file PDF hoặc ảnh</li>
+                    <li>Tải lên file</li>
                     <li>Nhận câu trả lời trực tiếp</li>
                 </ul>
-            </div>
-
-            <div class="sidebar-card">
-                <h2>File hỗ trợ</h2>
-                <p>PDF, PNG, JPG, JPEG</p>
             </div>
         </aside>
 
         <main class="chat-panel">
             <div class="chat-header">
                 <div>
-                    <h2>Chatbot hỗ trợ tập</h2>
+                    <h2>Giải đáp bất kỳ thắc mắc nào</h2>
                     <p>Nhập câu hỏi hoặc tải lên tài liệu để bắt đầu.</p>
                 </div>
-                <button class="doc-btn" onclick="document.getElementById('file').click()"><i class="fas fa-upload"></i> Tải lên tài liệu</button>
             </div>
 
             <div id="chat-box" class="chat-box"></div>
 
             <div class="controls">
                 <div class="input-group">
-                    <input id="input" type="text" placeholder="Nhập câu hỏi của bạn..." />
+                    <div class="input-with-file">
+                        <input id="input" type="text" placeholder="Nhập câu hỏi của bạn..." />
+                        <div class="file-select">
+                            <label for="file" class="file-label" title="Chọn file"><i class="fas fa-file-import"></i></label>
+                        </div>
+                        <div class="file-preview" style="display:none">
+                            <span class="file-info" id="file-name">Chưa có file</span>
+                            <button id="clear-file-btn" class="clear-file-btn" type="button" onclick="clearSelectedFile()" aria-label="Xóa file">×</button>
+                        </div>
+                    </div>
                     <button id="send-btn" onclick="send()"><i class="fas fa-paper-plane"></i></button>
                 </div>
-
-                <div class="upload-widget">
-                    <label for="file" class="file-label"><i class="fas fa-file-import"></i> Chọn PDF hoặc ảnh</label>
-                    <span class="file-info" id="file-name">Chưa có file</span>
-                </div>
-                <input type="file" id="file" accept=".pdf,image/*" hidden>
+                <input type="file" id="file" accept=".pdf,image/*,.doc,.docx,.xls,.xlsx,.ppt,.pptx" hidden>
             </div>
         </main>
     </div>
