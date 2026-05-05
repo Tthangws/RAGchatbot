@@ -16,7 +16,7 @@ def ingest():
             loader = PyPDFLoader(os.path.join(DATA_PATH, file))
             docs.extend(loader.load())
 
-    # 🔥 Tăng chunk size để giảm số lần gọi API
+    # Tăng chunk size để giảm số lần gọi API
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=1024,
         chunk_overlap=200
@@ -24,7 +24,7 @@ def ingest():
     
     chunks = splitter.split_documents(docs)
 
-    # ✅ Chỉ tạo embeddings 1 lần + dùng model rẻ
+    # Chỉ tạo embeddings 1 lần + dùng model rẻ
     embeddings = HuggingFaceEmbeddings(
     model_name="all-MiniLM-L6-v2"
 )

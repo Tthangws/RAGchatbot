@@ -4,8 +4,8 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_classic.memory import ConversationBufferMemory
 import os
 DB_PATH = "backend/db"
-os.environ["GOOGLE_API_KEY"] = "AIzaSyBhaorbzAWeSQcTOo7ENYE4scVG1-3CXmo"
-# Embedding (Google Generative AI)
+os.environ["GOOGLE_API_KEY"] = ""
+# Embedding 
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # Load vector DB
