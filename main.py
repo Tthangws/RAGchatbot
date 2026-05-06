@@ -1,7 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
 import shutil
-import os
 from rag import ask_rag
 from ingest import ingest
 
@@ -9,13 +8,13 @@ from ingest import ingest
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
-# THÊM NGUYÊN ĐOẠN NÀY ĐỂ MỞ CỬA CHO FRONTEND KẾT NỐI VÀO
+# ĐOẠN NÀY ĐỂ MỞ CỬA CHO FRONTEND KẾT NỐI VÀO
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Cho phép bất kỳ trang web nào (kể cả file html local) gọi tới
     allow_credentials=True,
     allow_methods=["*"],  # Cho phép tất cả các lệnh GET, POST...
-    allow_headers=["*"],
+    allow_headers=["*"], #cho phép thêm các thông tin đính kèm (Headers) thoải mái vào bưu kiện gửi tới.
 )
 class Query(BaseModel):
     question: str
