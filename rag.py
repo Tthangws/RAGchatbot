@@ -4,7 +4,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_classic.memory import ConversationBufferMemory
 import os
 DB_PATH = "backend/db"
-os.environ["GOOGLE_API_KEY"] = ""
+os.environ["GOOGLE_API_KEY"] = "AIzaSyDiCN02wuFRTmiBWQraM3ZW_wXnRQlGmfE"
 # Embedding 
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
